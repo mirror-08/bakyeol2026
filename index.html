@@ -838,8 +838,7 @@
         <option value="pct50">현장구매 50% 할인권</option>
         <option value="pass">할인증빙패스</option>
         <option value="pct40">40% 할인권</option>
-        <option value="storybook">미니 스토리북</option>
-        <option value="ost">미니 실황 OST</option>
+        <option value="storybook+ost">미니 스토리북 + 미니 실황 OST</option>
       </select>
     </div>
     <div class="form-group">
@@ -2780,13 +2779,17 @@ function saveManualCoupon() {
   if (!date) { showToast('날짜를 입력해주세요'); return; }
 
   const coupons = getCoupons();
-  if (!coupons[key].history) coupons[key].history = [];
-  coupons[key].history.push({ type, date, comment: comment || type, qty });
+  const keys = key === 'storybook+ost' ? ['storybook','ost'] : [key];
+  keys.forEach(k => {
+    if (!coupons[k].history) coupons[k].history = [];
+    coupons[k].history.push({ type, date, comment: comment || type, qty });
+  });
   saveCoupons(coupons);
   closePanel('overlay-coupon-manual');
   renderCouponList();
   renderHome();
-  showToast(`${COUPON_ITEMS.find(i=>i.key===key)?.label} ${type} ${qty}개 완료`);
+  const label = key === 'storybook+ost' ? '미니 스토리북 + 미니 실황 OST' : (COUPON_ITEMS.find(i=>i.key===key)?.label || key);
+  showToast(`${label} ${type} ${qty}개 완료`);
 }
 
 function openCouponPackPanel() {
