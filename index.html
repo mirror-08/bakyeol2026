@@ -1367,7 +1367,7 @@ function buildMiniSeat(hlZone, hlNum) {
   const C = 9, GAP = 1, AISLE = 6, LW = 16;
   const rows = ['A','B','C','D','E','F','G','H','I','J','K'];
 
-  let html = '<div style="overflow-x:auto;margin:8px 0;"><div style="display:inline-block;padding:2px;">';
+  let html = '<div style="overflow-x:auto;margin:8px 0;text-align:center;"><div style="display:inline-block;padding:2px;text-align:left;">';
   rows.forEach(rowKey => {
     const cfg = BAKYEOL_ROWS[rowKey];
     const isTargetRow = rowKey === hlZone;
