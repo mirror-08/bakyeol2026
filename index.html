@@ -372,7 +372,7 @@
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
       <div style="display:flex;align-items:flex-end;gap:5px;min-width:0;flex:1;overflow:hidden;">
         <div class="card-title" style="margin:0;white-space:nowrap;">🎫 불령사 회원 카드</div>
-        <div style="font-size:9px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-bottom:1px;">3칸: 40%할인권×2 / 7칸: 스토리북+OST 동시</div>
+        <div style="font-size:9px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-bottom:1px;">3칸: 40%할인권×2 / 7칸: 미니 스토리북 + 미니 실황 OST</div>
       </div>
       <button class="btn btn-outline btn-sm" style="font-size:10px;padding:3px 7px;flex-shrink:0;margin-left:6px;" onclick="openAddStampBoard()">+ 새 카드</button>
     </div>
@@ -2076,7 +2076,7 @@ function renderStampBoards() {
       const msLabel = isMs3
         ? `<div class="stamp-ms-label">40%×2</div>`
         : isMs7
-          ? `<div class="stamp-ms-label">혜택</div>`
+          ? `<div class="stamp-ms-label" style="height:auto;line-height:1.3;white-space:normal;text-align:center;">미니 스토리북<br>+ 미니 실황 OST</div>`
           : `<div class="stamp-ms-label"></div>`;
       return `<div class="stamp-grid-row"><div class="${cls}">${icon}</div>${msLabel}</div>`;
     }).join('');
