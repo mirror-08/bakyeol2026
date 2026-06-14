@@ -1562,7 +1562,7 @@ function renderHome() {
     calcEarned(item.key), calcUsed(item.key), `openCouponDetail('${item.key}')`)).join('');
 
   document.getElementById('home-coupons').innerHTML =
-    `<div class="coupon-cards" style="grid-template-columns:repeat(2,1fr);">${pct40Card}${comboCard}</div>` +
+    `<div class="coupon-cards">${pct40Card}${comboCard}<div></div></div>` +
     `<div class="coupon-cards" style="margin-top:6px;">${row2Html}</div>`;
 
   // ⑤ 최근 관람
